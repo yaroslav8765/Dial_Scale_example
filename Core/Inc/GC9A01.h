@@ -187,8 +187,8 @@ void GC9A01_ClearScreen(uint16_t bColor);
 void GC9A01_ClearWindow(uint8_t startX, uint8_t startY, uint8_t endX, uint8_t endY, uint16_t bColor);
 void GC9A01_SetPos(uint8_t Xstart, uint8_t Ystart, uint8_t Xend, uint8_t Yend);
 void GC9A01_show_picture(uint16_t *picture, uint16_t x,uint16_t y, uint8_t widht, uint8_t height);
-void GC9A01_DrawPixel_2x2(uint8_t x, uint8_t y, uint16_t color);
-void GC9A01_draw_line(uint16_t color, uint16_t x1, uint16_t y1,uint16_t x2, uint16_t y2);
+void GC9A01_DrawPixel(uint8_t x, uint8_t y, uint16_t color);
+void GC9A01_draw_line(uint16_t color, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t thickness);
 void GC9A01_DrawRect(uint16_t color, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
 void GC9A01_DrawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color);
 void GC9A01_FilledDrawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color);
@@ -207,3 +207,8 @@ uint8_t get_active_menu_member(struct MenuMember Members[AMOUNT_OF_MENU_MEMBERS]
 uint8_t chek_menu_member_for_the_file_type(struct MenuMember Member, char *str);
 void menu_active_member_running_text_animation(struct MenuMember Members[AMOUNT_OF_MENU_MEMBERS], uint8_t pos);
 
+
+void GC9A01A_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
+void GC9A01_Draw_Triangle(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8_t x3, uint8_t y3, uint16_t color);
+void GC9A01_FillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1,int16_t x2, int16_t y2, uint16_t color);
+void DrawTriangleArrow(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color, uint8_t base_lenght);

@@ -430,7 +430,7 @@ void GC9A01_show_picture(uint16_t *picture, uint16_t x, uint16_t y, uint8_t widt
 }
 
  
-void GC9A01_DrawPixel_2x2(uint8_t x, uint8_t y, uint16_t color)
+void GC9A01_DrawPixel(uint8_t x, uint8_t y, uint16_t color)
 {
     uint16_t i;
     uint8_t hb = (color & 0xFFFF) >> 8;
@@ -446,22 +446,21 @@ void GC9A01_DrawPixel_2x2(uint8_t x, uint8_t y, uint16_t color)
         tempBuf[i] = tempColor;
     }
 
-    GC9A01_SetPos(x, y, x + 1, y + 1);
+    GC9A01_SetPos(x, y, x , y );
 
     ptempBuf = (uint8_t *)tempBuf;
     GC9A01_Write_Bytes(ptempBuf, 8);
 }
 
 
-void GC9A01_draw_line(uint16_t color, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
-{
+void GC9A01_draw_line(uint16_t color, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t thickness) {
     int16_t steep = abs(y2 - y1) > abs(x2 - x1);
-    
+
     if (steep) {
         swap(x1, y1);
         swap(x2, y2);
     }
-    
+
     if (x1 > x2) {
         swap(x1, x2);
         swap(y1, y2);
@@ -473,10 +472,12 @@ void GC9A01_draw_line(uint16_t color, uint16_t x1, uint16_t y1, uint16_t x2, uin
     int16_t ystep = (y1 < y2) ? 1 : -1;
 
     for (; x1 <= x2; x1++) {
-        if (steep)
-            GC9A01_DrawPixel_2x2(y1, x1, color);
-        else
-            GC9A01_DrawPixel_2x2(x1, y1, color);
+        for (int i = -thickness / 2; i <= thickness / 2; i++) {
+            if (steep)
+                GC9A01_DrawPixel(y1 + i, x1, color);
+            else
+                GC9A01_DrawPixel(x1, y1 + i, color);
+        }
 
         err -= dy;
         if (err < 0) {
@@ -487,12 +488,14 @@ void GC9A01_draw_line(uint16_t color, uint16_t x1, uint16_t y1, uint16_t x2, uin
 }
 
 
+
+
 void GC9A01_DrawRect(uint16_t color, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
 {
-	GC9A01_draw_line(color,x1,y1,x2,y1);
-	GC9A01_draw_line(color,x2,y1,x2,y2);
-	GC9A01_draw_line(color,x1,y1,x1,y2);
-	GC9A01_draw_line(color,x1,y2,x2,y2);
+	GC9A01_draw_line(color,x1,y1,x2,y1,1);
+	GC9A01_draw_line(color,x2,y1,x2,y2,1);
+	GC9A01_draw_line(color,x1,y1,x1,y2,1);
+	GC9A01_draw_line(color,x1,y2,x2,y2,1);
 }
 
 void GC9A01_DrawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
@@ -502,10 +505,10 @@ void GC9A01_DrawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
 	int16_t ddF_y=-2*r;
 	int16_t x = 0;
 	int16_t y = r;
-	GC9A01_DrawPixel_2x2(x0,y0+r,color);
-	GC9A01_DrawPixel_2x2(x0,y0-r,color);
-	GC9A01_DrawPixel_2x2(x0+r,y0,color);
-	GC9A01_DrawPixel_2x2(x0-r,y0,color);
+	GC9A01_DrawPixel(x0,y0+r,color);
+	GC9A01_DrawPixel(x0,y0-r,color);
+	GC9A01_DrawPixel(x0+r,y0,color);
+	GC9A01_DrawPixel(x0-r,y0,color);
 	while (x<y)
 	{
 		if (f>=0)
@@ -517,26 +520,159 @@ void GC9A01_DrawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
 		x++;
 		ddF_x+=2;
 		f+=ddF_x;
-		GC9A01_DrawPixel_2x2(x0+x,y0+y,color);
-		GC9A01_DrawPixel_2x2(x0-x,y0+y,color);
-		GC9A01_DrawPixel_2x2(x0+x,y0-y,color);
-		GC9A01_DrawPixel_2x2(x0-x,y0-y,color);
-		GC9A01_DrawPixel_2x2(x0+y,y0+x,color);
-		GC9A01_DrawPixel_2x2(x0-y,y0+x,color);
-		GC9A01_DrawPixel_2x2(x0+y,y0-x,color);
-		GC9A01_DrawPixel_2x2(x0-y,y0-x,color);
+		GC9A01_DrawPixel(x0+x,y0+y,color);
+		GC9A01_DrawPixel(x0-x,y0+y,color);
+		GC9A01_DrawPixel(x0+x,y0-y,color);
+		GC9A01_DrawPixel(x0-x,y0-y,color);
+		GC9A01_DrawPixel(x0+y,y0+x,color);
+		GC9A01_DrawPixel(x0-y,y0+x,color);
+		GC9A01_DrawPixel(x0+y,y0-x,color);
+		GC9A01_DrawPixel(x0-y,y0-x,color);
+	}
+}
+
+void GC9A01_Draw_Triangle(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8_t x3, uint8_t y3, uint16_t color){
+	GC9A01_draw_line(color, x1,y1,x2,y2,1);
+	GC9A01_draw_line(color, x1,y1,x3,y3,1);
+	GC9A01_draw_line(color, x3,y3,x2,y2,1);
+
+}
+
+
+void GC9A01A_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color) {
+	if ((w <= 0) || (h <= 0) || (x >= LCD_W) || (y >= LCD_H))
+		return;
+
+	if (x < 0) {
+		w += x;
+		x = 0;
+	}
+	if (y < 0) {
+		h += y;
+		y = 0;
+	}
+
+	if ((w <= 0) || (h <= 0))
+		return;
+
+	if ((x + w) > LCD_W)
+		w = LCD_W - x;
+	if ((y + h) > LCD_H)
+		h = LCD_H - y;
+
+	for (uint16_t row = 0; row < h; row++) {
+		for (uint16_t col = 0; col < w; col++)
+		GC9A01_DrawPixel(x+col, y+row, color);
+	}
+}
+void SwapInt16Values(int16_t *pValue1, int16_t *pValue2) {
+	int16_t TempValue = *pValue1;
+	*pValue1 = *pValue2;
+	*pValue2 = TempValue;
+}
+void GC9A01_FillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1,
+	int16_t x2, int16_t y2, uint16_t color) {
+	int16_t a, b, y, last;
+
+	// Sort coordinates by Y order (y2 >= y1 >= y0)
+	if (y0 > y1) {
+		SwapInt16Values(&y0, &y1);
+		SwapInt16Values(&x0, &x1);
+	}
+	if (y1 > y2) {
+		SwapInt16Values(&y2, &y1);
+		SwapInt16Values(&x2, &x1);
+	}
+	if (y0 > y1) {
+		SwapInt16Values(&y0, &y1);
+		SwapInt16Values(&x0, &x1);
+	}
+
+	if (y0 == y2)	  // Handle awkward all-on-same-line case as its own thing
+			{
+		a = b = x0;
+		if (x1 < a)
+			a = x1;
+		else if (x1 > b)
+			b = x1;
+		if (x2 < a)
+			a = x2;
+		else if (x2 > b)
+			b = x2;
+
+		GC9A01A_FillRect(a, y0, b - a + 1, 1, color);
+		return;
+	}
+
+	int16_t dx01 = x1 - x0, dy01 = y1 - y0, dx02 = x2 - x0, dy02 = y2 - y0,
+			dx12 = x2 - x1, dy12 = y2 - y1;
+	int32_t sa = 0, sb = 0;
+
+	// For upper part of triangle, find scanline crossings for segments
+	// 0-1 and 0-2.  If y1=y2 (flat-bottomed triangle), the scanline y1
+	// is included here (and second loop will be skipped, avoiding a /0
+	// error there), otherwise scanline y1 is skipped here and handled
+	// in the second loop...which also avoids a /0 error here if y0=y1
+	// (flat-topped triangle).
+	if (y1 == y2)
+		last = y1; // Include y1 scanline
+	else
+		last = y1 - 1; // Skip it
+
+	for (y = y0; y <= last; y++) {
+		a = x0 + sa / dy01;
+		b = x0 + sb / dy02;
+		sa += dx01;
+		sb += dx02;
+
+		if (a > b)
+			SwapInt16Values(&a, &b);
+
+		GC9A01A_FillRect(a, y, b - a + 1, 1, color);
+	}
+
+	// For lower part of triangle, find scanline crossings for segments 0-2 and 1-2.  This loop is skipped if y1=y2.
+	sa = (int32_t) dx12 * (y - y1);
+	sb = (int32_t) dx02 * (y - y0);
+	for (; y <= y2; y++) {
+		a = x1 + sa / dy12;
+		b = x0 + sb / dy02;
+		sa += dx12;
+		sb += dx02;
+
+		if (a > b)
+			SwapInt16Values(&a, &b);
+
+		GC9A01A_FillRect(a, y, b - a + 1, 1, color);
 	}
 }
 
 void DrawArrow(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color) {
+		
 		angle -= 180;
     float angleRad = angle * M_PI / 180.0;
-    int x = round(cos(angleRad) * lineLen) + 119;
-    int y = round(sin(angleRad) * lineLen) + 119;
+    int x = round(cos(angleRad) * lineLen) + 120;
+    int y = round(sin(angleRad) * lineLen) + 120;
 
-    for (int i = -thick / 2; i <= thick / 2; i++) {
-        GC9A01_draw_line(color, x + i, y + i, 119 + i, 119 + i);
-    }
+    GC9A01_draw_line(color, x , y , 120 , 120 ,thick);
+
+}
+
+void DrawTriangleArrow(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color, uint8_t base_lenght) {
+	
+		angle -= 180;
+    float angleRad = angle * M_PI / 180.0;
+    int x3 = round(cos(angleRad) * lineLen) + 120;
+    int y3 = round(sin(angleRad) * lineLen) + 120;
+		angle-=90;
+		angleRad = angle * M_PI / 180.0;
+		int x1 = round(cos(angleRad) * base_lenght) + 120;
+    int y1 = round(sin(angleRad) * base_lenght) + 120;
+		angle+=180;
+		angleRad = angle * M_PI / 180.0;
+		int x2 = round(cos(angleRad) * base_lenght) + 120;
+    int y2 = round(sin(angleRad) * base_lenght) + 120;
+    GC9A01_FillTriangle( x1,y1,x2,y2, x3 , y3 ,color);
 }
 
 void DrawLineAroundTheCircle(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color) {
@@ -546,16 +682,15 @@ void DrawLineAroundTheCircle(int16_t angle, uint8_t lineLen, uint8_t thick, uint
     int y1 = round(sin(angleRad) * 120) + 120;
 		int x2 = round(cos(angleRad) * (120 - lineLen)) + 120;
     int y2 = round(sin(angleRad) * (120 - lineLen)) + 120;
-    for (int i = -thick / 2; i <= thick / 2; i++) {
-        GC9A01_draw_line(color, x1 + i, y1, x2 + i, y2);  // ???????? ?? ???????????
-        GC9A01_draw_line(color, x1, y1 + i, x2, y2 + i);  // ???????? ?? ?????????
-    }
+	
+    GC9A01_draw_line(color, x1, y1, x2, y2,thick);
+ 
 }
 
 
 void GC9A01_FilledDrawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
 {
-	for(uint8_t i = r; i>0; i = i-2){
+	for(uint8_t i = r; i>0; i = i--){
 		GC9A01_DrawCircle(x0, y0, i, color);
 	}
 }
@@ -608,11 +743,11 @@ void GC9A01_DrawChar(uint16_t x, uint16_t y, uint8_t c)
     {
       if(line & (1 << (width- j + offset- 1))) 
       {
-        GC9A01_DrawPixel_2x2((x + j), y, lcdprop.TextColor);
+        GC9A01_DrawPixel((x + j), y, lcdprop.TextColor);
       }
       else
       {
-        GC9A01_DrawPixel_2x2((x + j), y, lcdprop.BackColor);
+        GC9A01_DrawPixel((x + j), y, lcdprop.BackColor);
       } 
     }
     y++;      
