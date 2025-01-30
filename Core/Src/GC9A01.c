@@ -531,6 +531,44 @@ void GC9A01_DrawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
 	}
 }
 
+void GC9A01_FillCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
+{
+	int16_t f = 1-r;
+	int16_t ddF_x=1;
+	int16_t ddF_y=-2*r;
+	int16_t x = 0;
+	int16_t y = r;
+	GC9A01_DrawPixel(x0,y0+r,color);
+	GC9A01_DrawPixel(x0,y0-r,color);
+	GC9A01_DrawPixel(x0+r,y0,color);
+	GC9A01_DrawPixel(x0-r,y0,color);
+	GC9A01_draw_line(color,x0+r,y0,x0-r,y0,1);
+	while (x<y)
+	{
+		if (f>=0)
+		{
+			y--;
+			ddF_y+=2;
+			f+=ddF_y;
+		}
+		x++;
+		ddF_x+=2;
+		f+=ddF_x;
+		GC9A01_DrawPixel(x0+x,y0+y,color);	//DOWN RIGHT
+		GC9A01_DrawPixel(x0-x,y0+y,color);	//DOWN LEFT
+		GC9A01_draw_line(color,x0+x,y0+y,x0-x,y0+y,1);
+		GC9A01_DrawPixel(x0+x,y0-y,color);	//TOP RIGHT
+		GC9A01_DrawPixel(x0-x,y0-y,color);	//TOP lEFT
+		GC9A01_draw_line(color,x0+x,y0-y,x0-x,y0-y,1);
+		GC9A01_DrawPixel(x0+y,y0+x,color);	//RIGHT DOWN
+		GC9A01_DrawPixel(x0-y,y0+x,color);	//LEFT DOWN
+		GC9A01_draw_line(color,x0+y,y0+x,x0-y,y0+x,1);
+		GC9A01_DrawPixel(x0+y,y0-x,color);	//TOP RIGHT
+		GC9A01_DrawPixel(x0-y,y0-x,color);	//TOP LEFT
+		GC9A01_draw_line(color,x0+y,y0-x,x0-y,y0-x,1);
+	}
+}
+
 void GC9A01_Draw_Triangle(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8_t x3, uint8_t y3, uint16_t color){
 	GC9A01_draw_line(color, x1,y1,x2,y2,1);
 	GC9A01_draw_line(color, x1,y1,x3,y3,1);
@@ -661,14 +699,15 @@ void DrawArrow(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color) {
 void DrawTriangleArrow(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color, uint8_t base_lenght) {
 	
 		angle -= 180;
+		base_lenght+=20;
     float angleRad = angle * M_PI / 180.0;
     int x3 = round(cos(angleRad) * lineLen) + 120;
     int y3 = round(sin(angleRad) * lineLen) + 120;
-		angle-=90;
+		angle-=170;
 		angleRad = angle * M_PI / 180.0;
 		int x1 = round(cos(angleRad) * base_lenght) + 120;
     int y1 = round(sin(angleRad) * base_lenght) + 120;
-		angle+=180;
+		angle+=340;
 		angleRad = angle * M_PI / 180.0;
 		int x2 = round(cos(angleRad) * base_lenght) + 120;
     int y2 = round(sin(angleRad) * base_lenght) + 120;

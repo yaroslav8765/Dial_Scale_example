@@ -135,21 +135,31 @@ GC9A01_SetTextColor(BLACK);
 	
 	char str[50];
 /* USER CODE END 2 */
-		DrawLineAroundTheCircle(0, 	15,	2,BLACK);
-		DrawLineAroundTheCircle(30, 10,	1,BLACK);
-		DrawLineAroundTheCircle(60, 10,	1,BLACK);
-		DrawLineAroundTheCircle(90, 15,	2,BLACK);
-		GC9A01_FilledDrawCircle(120,120,10,BLACK);
-		//GC9A01_Draw_Triangle(115,120,125,120,120,0,RED);
-		//GC9A01_FillTriangle(110,120,130,120,120,20,BLACK);
+
+		DrawLineAroundTheCircle(345,	10,	1,BLACK);
+		DrawLineAroundTheCircle(0, 		20,	2,BLACK);
+		DrawLineAroundTheCircle(15, 	10,	1,BLACK);
+		DrawLineAroundTheCircle(30, 	10,	1,BLACK);
+		DrawLineAroundTheCircle(45,		20,	2,BLACK);
+		DrawLineAroundTheCircle(60, 	10,	1,BLACK);
+		DrawLineAroundTheCircle(75, 	10,	1,BLACK);
+		DrawLineAroundTheCircle(90, 	20,	2,BLACK);
+		DrawLineAroundTheCircle(105, 	10,	1,BLACK);
+		DrawLineAroundTheCircle(120, 	10,	1,BLACK);
+		DrawLineAroundTheCircle(135, 	20,	2,BLACK);
+		DrawLineAroundTheCircle(150, 	10,	1,BLACK);
+		DrawLineAroundTheCircle(165, 	10,	1,BLACK);
+		DrawLineAroundTheCircle(180, 	20,	2,BLACK);
+		DrawLineAroundTheCircle(195, 	10,	1,BLACK);
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		GC9A01_FillCircle(120,120,10,BLACK);
 		
 		
-		
-				GC9A01_FilledDrawCircle(120,120,10,BLACK);
+//				GC9A01_FilledDrawCircle(120,120,10,BLACK);
 
 		DrawTriangleArrow(angle,100,1,BLACK,5);
 		angle++;
