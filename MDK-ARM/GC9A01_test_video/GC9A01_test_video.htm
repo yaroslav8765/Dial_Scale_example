@@ -3,9 +3,9 @@
 <title>Static Call Graph - [GC9A01_test_video\GC9A01_test_video.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image GC9A01_test_video\GC9A01_test_video.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Thu Jan 30 17:29:30 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Sat Feb 01 18:00:37 2025
 <BR><P>
-<H3>Maximum Stack Usage =        336 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        344 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; DrawTriangleArrow &rArr; GC9A01_FillTriangle &rArr; GC9A01A_FillRect &rArr; GC9A01_DrawPixel &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 <P>
@@ -237,7 +237,7 @@ Global Symbols
 <P><STRONG><a name="[ee]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[5d]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; DrawTriangleArrow &rArr; GC9A01_FillTriangle &rArr; GC9A01A_FillRect &rArr; GC9A01_DrawPixel &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -722,7 +722,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[88]"></a>DrawTriangleArrow</STRONG> (Thumb, 518 bytes, Stack size 96 bytes, gc9a01.o(i.DrawTriangleArrow))
+<P><STRONG><a name="[88]"></a>DrawTriangleArrow</STRONG> (Thumb, 528 bytes, Stack size 96 bytes, gc9a01.o(i.DrawTriangleArrow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = DrawTriangleArrow &rArr; GC9A01_FillTriangle &rArr; GC9A01A_FillRect &rArr; GC9A01_DrawPixel &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GC9A01_FillTriangle
@@ -1102,8 +1102,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
-<P><STRONG><a name="[5e]"></a>main</STRONG> (Thumb, 586 bytes, Stack size 56 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
+<P><STRONG><a name="[5e]"></a>main</STRONG> (Thumb, 694 bytes, Stack size 64 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
 <LI>Call Chain = main &rArr; DrawTriangleArrow &rArr; GC9A01_FillTriangle &rArr; GC9A01A_FillRect &rArr; GC9A01_DrawPixel &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GC9A01_String

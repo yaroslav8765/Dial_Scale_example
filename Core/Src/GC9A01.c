@@ -696,22 +696,23 @@ void DrawArrow(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color) {
 
 }
 
-void DrawTriangleArrow(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color, uint8_t base_lenght) {
+void DrawTriangleArrow(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color, uint8_t base_lenght, uint16_t back_tail_angle, uint8_t imaginable_circle_R) {
 	
 		angle -= 180;
-		base_lenght+=20;
+		base_lenght+=imaginable_circle_R;
     float angleRad = angle * M_PI / 180.0;
     int x3 = round(cos(angleRad) * lineLen) + 120;
     int y3 = round(sin(angleRad) * lineLen) + 120;
-		angle-=170;
+		angle-=back_tail_angle;
 		angleRad = angle * M_PI / 180.0;
 		int x1 = round(cos(angleRad) * base_lenght) + 120;
     int y1 = round(sin(angleRad) * base_lenght) + 120;
-		angle+=340;
+		angle+=2*back_tail_angle;
 		angleRad = angle * M_PI / 180.0;
 		int x2 = round(cos(angleRad) * base_lenght) + 120;
     int y2 = round(sin(angleRad) * base_lenght) + 120;
     GC9A01_FillTriangle( x1,y1,x2,y2, x3 , y3 ,color);
+		//GC9A01_Draw_Triangle( x1,y1,x2,y2, x3 , y3 ,color);
 }
 
 void DrawLineAroundTheCircle(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color) {
@@ -721,7 +722,7 @@ void DrawLineAroundTheCircle(int16_t angle, uint8_t lineLen, uint8_t thick, uint
     int y1 = round(sin(angleRad) * 120) + 120;
 		int x2 = round(cos(angleRad) * (120 - lineLen)) + 120;
     int y2 = round(sin(angleRad) * (120 - lineLen)) + 120;
-	
+	//	GC9A01_String(x2,y2, "0");
     GC9A01_draw_line(color, x1, y1, x2, y2,thick);
  
 }

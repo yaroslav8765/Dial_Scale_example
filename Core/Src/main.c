@@ -118,7 +118,7 @@ NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 1
   MX_DMA_Init();
   MX_SPI1_Init();
 /* USER CODE BEGIN 2 */
-uint16_t angle = 0;
+uint16_t angle = 50;
 LL_DMA_DisableStream(DMA_NO, DMA_STREAM);
 LL_DMA_ClearFlag_TC(DMA_NO);
 LL_DMA_ClearFlag_TE(DMA_NO);
@@ -151,24 +151,55 @@ GC9A01_SetTextColor(BLACK);
 		DrawLineAroundTheCircle(165, 	10,	1,BLACK);
 		DrawLineAroundTheCircle(180, 	20,	2,BLACK);
 		DrawLineAroundTheCircle(195, 	10,	1,BLACK);
+		
+		//GC9A01_String(155,	35, "10" );
+//		GC9A01_String(200,	63, "2");
+//		GC9A01_String(207,	106,"3");
+//		GC9A01_String(200,	160,"4");
+//		GC9A01_String(165, 	193,"5");
+//		GC9A01_String(112,	195,"6");
+//		GC9A01_String(65, 	193,"7");
+		//GC9A01_String(17, 	142,"0");
+		GC9A01_String(24, 	113,"10");
+		//GC9A01_String(18, 	88,	"20");
+		//GC9A01_String(28, 	63,	"30");
+		GC9A01_String(49, 	51,	"40");
+		//GC9A01_String(65, 	30,	"50");
+		//GC9A01_String(90, 	20,	"60");
+		GC9A01_String(109, 	25,	"70");
+		//GC9A01_String(139, 	20,	"80");
+		//GC9A01_String(162,	30, "90" );
+		GC9A01_String(158,	51, "100" );
+//		GC9A01_String(106, 	14,	"12");
+		GC9A01_String(183, 	113,"130");
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		GC9A01_FillCircle(120,120,10,BLACK);
-		
-		
-//				GC9A01_FilledDrawCircle(120,120,10,BLACK);
+		GC9A01_FillCircle(120,120,8,RED);
 
-		DrawTriangleArrow(angle,100,1,BLACK,5);
-		angle++;
+		DrawTriangleArrow(angle,80,3,RED,5,170,10);
+		//DrawArrow(angle,60,3,RED);
 		sprintf(str, "Angle: %d",angle);
-		GC9A01_String(20,160,str);
+		//GC9A01_String(20,160,str);
+		angle++;
 		
 		delay_ms(50);
-		DrawTriangleArrow(angle-1,100,1,WHITE,5);
-
+		DrawTriangleArrow(angle-1,80,3,WHITE,5,170,10);
+		GC9A01_String(24, 	113,"10");
+		//GC9A01_String(18, 	88,	"20");
+		//GC9A01_String(28, 	63,	"30");
+		GC9A01_String(49, 	51,	"40");
+		//GC9A01_String(65, 	30,	"50");
+		//GC9A01_String(90, 	20,	"60");
+		GC9A01_String(109, 	25,	"70");
+		//GC9A01_String(139, 	20,	"80");
+		//GC9A01_String(162,	30, "90" );
+		GC9A01_String(158,	51, "100" );
+		//GC9A01_String(106, 	14,	"12");
+		GC9A01_String(183, 	113,"130");
+		//DrawArrow(angle-1,60,3,WHITE);
 
     /* USER CODE END WHILE */
 		
