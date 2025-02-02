@@ -43,6 +43,8 @@
 /* USER CODE BEGIN PV */
 volatile uint8_t dma_spi_fl1 = 0;
 struct MenuMember Members[8];
+//static uint16_t ScreenBuff[LCD_W * LCD_H];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,8 +70,6 @@ void delay_ms(uint32_t ms) {
   * @brief  The application entry point.
   * @retval int
   */
-
-
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -105,19 +105,15 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
-/* USER CODE BEGIN Init */
-LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
-LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
+  /* USER CODE BEGIN SysInit */
 
-NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
-NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 15, 0));
-/* USER CODE END Init */
+  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_SPI1_Init();
-/* USER CODE BEGIN 2 */
+  /* USER CODE BEGIN 2 */
 uint16_t angle = 50;
 LL_DMA_DisableStream(DMA_NO, DMA_STREAM);
 LL_DMA_ClearFlag_TC(DMA_NO);
@@ -134,81 +130,116 @@ GC9A01_SetBackColor(WHITE);
 GC9A01_SetTextColor(BLACK);
 	
 	char str[50];
-/* USER CODE END 2 */
-
-		DrawLineAroundTheCircle(345,	10,	1,BLACK);
-		DrawLineAroundTheCircle(0, 		20,	2,BLACK);
-		DrawLineAroundTheCircle(15, 	10,	1,BLACK);
-		DrawLineAroundTheCircle(30, 	10,	1,BLACK);
-		DrawLineAroundTheCircle(45,		20,	2,BLACK);
-		DrawLineAroundTheCircle(60, 	10,	1,BLACK);
-		DrawLineAroundTheCircle(75, 	10,	1,BLACK);
-		DrawLineAroundTheCircle(90, 	20,	2,BLACK);
-		DrawLineAroundTheCircle(105, 	10,	1,BLACK);
-		DrawLineAroundTheCircle(120, 	10,	1,BLACK);
-		DrawLineAroundTheCircle(135, 	20,	2,BLACK);
-		DrawLineAroundTheCircle(150, 	10,	1,BLACK);
-		DrawLineAroundTheCircle(165, 	10,	1,BLACK);
-		DrawLineAroundTheCircle(180, 	20,	2,BLACK);
-		DrawLineAroundTheCircle(195, 	10,	1,BLACK);
-		
-		//GC9A01_String(155,	35, "10" );
-//		GC9A01_String(200,	63, "2");
-//		GC9A01_String(207,	106,"3");
-//		GC9A01_String(200,	160,"4");
-//		GC9A01_String(165, 	193,"5");
-//		GC9A01_String(112,	195,"6");
-//		GC9A01_String(65, 	193,"7");
-		//GC9A01_String(17, 	142,"0");
-		GC9A01_String(24, 	113,"10");
-		//GC9A01_String(18, 	88,	"20");
-		//GC9A01_String(28, 	63,	"30");
-		GC9A01_String(49, 	51,	"40");
-		//GC9A01_String(65, 	30,	"50");
-		//GC9A01_String(90, 	20,	"60");
-		GC9A01_String(109, 	25,	"70");
-		//GC9A01_String(139, 	20,	"80");
-		//GC9A01_String(162,	30, "90" );
-		GC9A01_String(158,	51, "100" );
-//		GC9A01_String(106, 	14,	"12");
-		GC9A01_String(183, 	113,"130");
+	
+	
+		uint8_t r_start = 31, g_start = 0, b_start = 0;
+		uint8_t r_end = 0, g_end = 0, b_end = 31;
+		uint8_t r, g, b;
+    uint16_t color;
+		color = (r << 11) | (g << 5) | b;
+		uint16_t start_angle = 330;
+		uint16_t end_angle = 210;
+		uint16_t diff = abs(start_angle - end_angle);
+		uint16_t total_degrees = end_angle + (360 - start_angle);
+    // ?????? ? ????????? ??????????? R, G, B
+    const uint8_t max_values[3] = {31, 63, 31};
+    uint8_t *components[3] = {&r, &g, &b};
+  /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		GC9A01_FillCircle(120,120,8,RED);
-
-		DrawTriangleArrow(angle,80,3,RED,5,170,10);
-		//DrawArrow(angle,60,3,RED);
-		sprintf(str, "Angle: %d",angle);
-		//GC9A01_String(20,160,str);
-		angle++;
+		//GC9A01_ClearWindow(20,20,120,120,RED);
+		//GC9A01_ClearWindow(180,180,140,140,GREEN);
+//		GC9A01_FillCircle(120,120,20,ORANGE);
+//		GC9A01_ClearWindow(120,120,121,180,RED);
 		
-		delay_ms(50);
-		DrawTriangleArrow(angle-1,80,3,WHITE,5,170,10);
-		GC9A01_String(24, 	113,"10");
-		//GC9A01_String(18, 	88,	"20");
-		//GC9A01_String(28, 	63,	"30");
-		GC9A01_String(49, 	51,	"40");
-		//GC9A01_String(65, 	30,	"50");
-		//GC9A01_String(90, 	20,	"60");
-		GC9A01_String(109, 	25,	"70");
-		//GC9A01_String(139, 	20,	"80");
-		//GC9A01_String(162,	30, "90" );
-		GC9A01_String(158,	51, "100" );
-		//GC9A01_String(106, 	14,	"12");
-		GC9A01_String(183, 	113,"130");
-		//DrawArrow(angle-1,60,3,WHITE);
+		
+		
+		
+		
+		
+		
+		for(uint16_t i = 0; i!=total_degrees; i++){
+		if(i == 360) i = 0;
+			 float t = (float)i / (total_degrees - 1);
+    r = (uint8_t)((1 - t) * r_start + t * r_end);
+    g = (uint8_t)((1 - t) * g_start + t * g_end);
+    b = (uint8_t)((1 - t) * b_start + t * b_end);
+
+		color = (r << 11) | (g << 5) | b;
+		GC9A01_DrawCircleArountTheCircle(start_angle,i,25,95,color);
+
+			
+		}
+		
+		for(int32_t i = total_degrees; i!= 0; i--){
+		if(i == 0) i = 360;
+		float t = (float)i / (total_degrees - 1);
+    r = (uint8_t)((1 - t) * r_start + t * r_end);
+    g = (uint8_t)((1 - t) * g_start + t * g_end);
+    b = (uint8_t)((1 - t) * b_start + t * b_end);
+		color = (r << 11) | (g << 5) | b;
+		GC9A01_DrawCircleArountTheCircle(start_angle,i+1,25,95,WHITE);
+//		GC9A01_DrawCircleArountTheCircle(start_angle,i,25,95,color);
+		}
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		DrawLineAroundTheCircle(345,	10,	1,BLACK);
+//		DrawLineAroundTheCircle(0, 		20,	2,BLACK);
+//		DrawLineAroundTheCircle(15, 	10,	1,BLACK);
+//		DrawLineAroundTheCircle(30, 	10,	1,BLACK);
+//		DrawLineAroundTheCircle(45,		20,	2,BLACK);
+//		DrawLineAroundTheCircle(60, 	10,	1,BLACK);
+//		DrawLineAroundTheCircle(75, 	10,	1,BLACK);
+//		DrawLineAroundTheCircle(90, 	20,	2,BLACK);
+//		DrawLineAroundTheCircle(105, 	10,	1,BLACK);
+//		DrawLineAroundTheCircle(120, 	10,	1,BLACK);
+//		DrawLineAroundTheCircle(135, 	20,	2,BLACK);
+//		DrawLineAroundTheCircle(150, 	10,	1,BLACK);
+//		DrawLineAroundTheCircle(165, 	10,	1,BLACK);
+//		DrawLineAroundTheCircle(180, 	20,	2,BLACK);
+//		DrawLineAroundTheCircle(195, 	10,	1,BLACK);
+//		
+//		GC9A01_FillCircle(120,120,8,RED);
+//		DrawTriangleArrow(angle,80,3,RED,5,170,10);
+//		angle++;
+//		
+//		delay_ms(50);
+//		DrawTriangleArrow(angle-1,80,3,WHITE,5,170,10);
+//		GC9A01_String(24, 	113,"10");
+//		GC9A01_String(49, 	51,	"40");
+//		GC9A01_String(109, 	25,	"70");
+//		GC9A01_String(158,	51, "100" );
+//		GC9A01_String(183, 	113,"130");
 
     /* USER CODE END WHILE */
-		
-  
-}
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-
+}
 
 /**
   * @brief System Clock Configuration

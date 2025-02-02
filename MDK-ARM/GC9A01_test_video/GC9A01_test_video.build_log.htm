@@ -22,19 +22,25 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 D:\embeded systems\CUBE_MX DISPLAY test\Video_test\GC9A01_test_video\MDK-ARM\GC9A01_test_video.uvprojx
-Project File Date:  01/20/2025
+Project File Date:  02/02/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'GC9A01_test_video'
 compiling main.c...
-../Core/Inc/GC9A01.h(215): warning:  #1-D: last line of file ends without a newline
-  void GC9A01_FillCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color);
-../Core/Src/main.c: 1 warning, 0 errors
+../Core/Src/main.c(117): warning:  #177-D: variable "angle" was declared but never referenced
+  uint16_t angle = 50;
+../Core/Src/main.c(132): warning:  #177-D: variable "str" was declared but never referenced
+  	char str[50];
+../Core/Src/main.c(145): warning:  #177-D: variable "max_values" was declared but never referenced
+      const uint8_t max_values[3] = {31, 63, 31};
+../Core/Src/main.c(146): warning:  #177-D: variable "components" was declared but never referenced
+      uint8_t *components[3] = {&r, &g, &b};
+../Core/Src/main.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=13750 RO-data=3786 RW-data=28 ZI-data=12804  
+Program Size: Code=11162 RO-data=3790 RW-data=28 ZI-data=6660  
 FromELF: creating hex file...
-"GC9A01_test_video\GC9A01_test_video.axf" - 0 Error(s), 1 Warning(s).
+"GC9A01_test_video\GC9A01_test_video.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 

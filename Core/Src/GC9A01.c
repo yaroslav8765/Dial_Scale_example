@@ -538,11 +538,12 @@ void GC9A01_FillCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
 	int16_t ddF_y=-2*r;
 	int16_t x = 0;
 	int16_t y = r;
-	GC9A01_DrawPixel(x0,y0+r,color);
-	GC9A01_DrawPixel(x0,y0-r,color);
-	GC9A01_DrawPixel(x0+r,y0,color);
-	GC9A01_DrawPixel(x0-r,y0,color);
-	GC9A01_draw_line(color,x0+r,y0,x0-r,y0,1);
+//	GC9A01_DrawPixel(x0,y0+r,color);
+//	GC9A01_DrawPixel(x0,y0-r,color);
+//	GC9A01_DrawPixel(x0+r,y0,color);
+//	GC9A01_DrawPixel(x0-r,y0,color);
+	//GC9A01_draw_line(color,x0+r,y0,x0-r,y0,1);
+	GC9A01_ClearWindow(x0-r,y0,x0+r+1,y0+1,color);
 	while (x<y)
 	{
 		if (f>=0)
@@ -554,18 +555,29 @@ void GC9A01_FillCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
 		x++;
 		ddF_x+=2;
 		f+=ddF_x;
-		GC9A01_DrawPixel(x0+x,y0+y,color);	//DOWN RIGHT
-		GC9A01_DrawPixel(x0-x,y0+y,color);	//DOWN LEFT
-		GC9A01_draw_line(color,x0+x,y0+y,x0-x,y0+y,1);
-		GC9A01_DrawPixel(x0+x,y0-y,color);	//TOP RIGHT
-		GC9A01_DrawPixel(x0-x,y0-y,color);	//TOP lEFT
-		GC9A01_draw_line(color,x0+x,y0-y,x0-x,y0-y,1);
-		GC9A01_DrawPixel(x0+y,y0+x,color);	//RIGHT DOWN
-		GC9A01_DrawPixel(x0-y,y0+x,color);	//LEFT DOWN
-		GC9A01_draw_line(color,x0+y,y0+x,x0-y,y0+x,1);
-		GC9A01_DrawPixel(x0+y,y0-x,color);	//TOP RIGHT
-		GC9A01_DrawPixel(x0-y,y0-x,color);	//TOP LEFT
-		GC9A01_draw_line(color,x0+y,y0-x,x0-y,y0-x,1);
+//		GC9A01_DrawPixel(x0+x,y0+y,color);	//DOWN RIGHT
+//		GC9A01_DrawPixel(x0-x,y0+y,color);	//DOWN LEFT
+		//GC9A01_draw_line(color,x0+x,y0+y,x0-x,y0+y,1);
+		//GC9A01_ClearWindow(x0+x,y0+y,x0-x,y0+y ,color);
+		GC9A01_ClearWindow(x0-x,y0+y,x0+x+1,y0+y+1,	color);
+
+//		GC9A01_DrawPixel(x0+x,y0-y,color);	//TOP RIGHT
+//		GC9A01_DrawPixel(x0-x,y0-y,color);	//TOP lEFT
+		//GC9A01_draw_line(color,x0+x,y0-y,x0-x,y0-y,1);
+		//GC9A01_ClearWindow(x0+x,y0-y,x0-x,y0-y,color);
+		GC9A01_ClearWindow(x0-x,y0-y,x0+x+1,(y0-y)+1 ,color);
+		
+//		GC9A01_DrawPixel(x0+y,y0+x,color);	//RIGHT DOWN
+//		GC9A01_DrawPixel(x0-y,y0+x,color);	//LEFT DOWN
+		//GC9A01_draw_line(color,x0+y,y0+x,x0-y,y0+x,1);
+		//GC9A01_ClearWindow(x0+y,y0+x,x0-y,y0+x,color);
+		GC9A01_ClearWindow(x0-y,y0+x,x0+y+1,y0+x+1,color);
+		
+//		GC9A01_DrawPixel(x0+y,y0-x,color);	//TOP RIGHT
+//		GC9A01_DrawPixel(x0-y,y0-x,color);	//TOP LEFT
+		//GC9A01_draw_line(color,x0+y,y0-x,x0-y,y0-x,1);
+		//GC9A01_ClearWindow(x0+y,y0-x,x0-y,y0-x,color);
+		GC9A01_ClearWindow(x0-y,y0-x,x0+y+1,(y0-x)+1,color);
 	}
 }
 
@@ -727,10 +739,19 @@ void DrawLineAroundTheCircle(int16_t angle, uint8_t lineLen, uint8_t thick, uint
  
 }
 
+void GC9A01_DrawCircleArountTheCircle(uint16_t start_pos,int16_t angle,uint8_t r,uint8_t distance_to_center, uint16_t color){
+	angle -= 180 + (360 - start_pos);
+  float angleRad = angle * M_PI / 180.0;
+  int x = round(cos(angleRad) * ( distance_to_center)) + 120;
+  int y = round(sin(angleRad) * ( distance_to_center)) + 120;
+	GC9A01_FillCircle(x,y,r,color);
+
+}
+
 
 void GC9A01_FilledDrawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
 {
-	for(uint8_t i = r; i>0; i = i--){
+	for(uint8_t i = r; i>0; i--){
 		GC9A01_DrawCircle(x0, y0, i, color);
 	}
 }

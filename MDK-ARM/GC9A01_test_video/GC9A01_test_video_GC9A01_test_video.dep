@@ -1,7 +1,24 @@
 Dependencies for Project 'GC9A01_test_video', Target 'GC9A01_test_video': (DO NOT MODIFY !)
 CompilerVersion: 5060300::V5.06 update 3 (build 300)::ARMCC
-F (startup_stm32f411xe.s)(0x678E5DEB)(--cpu Cortex-M4.fp.sp -g --apcs=interwork -I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include--pd "__UVISION_VERSION SETA 539" --pd "_RTE_ SETA 1" --pd "STM32F411xE SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f411xe.lst --xref -o gc9a01_test_video\startup_stm32f411xe.o --depend gc9a01_test_video\startup_stm32f411xe.d)
-F (../Core/Src/main.c)(0x679E4525)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\main.o --omf_browse gc9a01_test_video\main.crf --depend gc9a01_test_video\main.d)
+F (startup_stm32f411xe.s)(0x679F8814)(--cpu Cortex-M4.fp.sp -g --apcs=interwork -I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include--pd "__UVISION_VERSION SETA 539" --pd "_RTE_ SETA 1" --pd "STM32F411xE SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f411xe.lst --xref -o gc9a01_test_video\startup_stm32f411xe.o --depend gc9a01_test_video\startup_stm32f411xe.d)
+F (..\Core\Inc\fonts.h)(0x67864552)()
+F (..\Core\Inc\GC9A01.h)(0x679F8B55)()
+F (..\Core\Src\font8.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font8.o --omf_browse gc9a01_test_video\font8.crf --depend gc9a01_test_video\font8.d)
+I (../Core/Inc/fonts.h)(0x67864552)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+F (..\Core\Src\font12.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font12.o --omf_browse gc9a01_test_video\font12.crf --depend gc9a01_test_video\font12.d)
+I (../Core/Inc/fonts.h)(0x67864552)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+F (..\Core\Src\font16.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font16.o --omf_browse gc9a01_test_video\font16.crf --depend gc9a01_test_video\font16.d)
+I (../Core/Inc/fonts.h)(0x67864552)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+F (..\Core\Src\font20.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font20.o --omf_browse gc9a01_test_video\font20.crf --depend gc9a01_test_video\font20.d)
+I (../Core/Inc/fonts.h)(0x67864552)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+F (..\Core\Src\font24.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font24.o --omf_browse gc9a01_test_video\font24.crf --depend gc9a01_test_video\font24.d)
+I (../Core/Inc/fonts.h)(0x67864552)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+F (..\Core\Src\GC9A01.c)(0x679F935E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\gc9a01.o --omf_browse gc9a01_test_video\gc9a01.crf --depend gc9a01_test_video\gc9a01.d)
 I (../Core/Inc/main.h)(0x678E5EBA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h)(0x6712433F)
 I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67124310)
@@ -27,7 +44,34 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E9286)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x574E9286)
 I (../Core/Inc/fonts.h)(0x67864552)
-I (../Core/Inc/GC9A01.h)(0x679CB177)
+I (../Core/Inc/GC9A01.h)(0x679F8B55)
+F (../Core/Src/main.c)(0x679F9456)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\main.o --omf_browse gc9a01_test_video\main.crf --depend gc9a01_test_video\main.d)
+I (../Core/Inc/main.h)(0x678E5EBA)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h)(0x6712433F)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67124310)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h)(0x67124310)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67124313)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67124313)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67124313)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67124313)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67124313)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67124310)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h)(0x6712433F)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h)(0x6712433F)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_system.h)(0x6712433F)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h)(0x6712433F)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_cortex.h)(0x6712433F)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_utils.h)(0x6712433F)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pwr.h)(0x6712433F)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h)(0x6712433F)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x6712433F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x574E9286)
+I (../Core/Inc/fonts.h)(0x67864552)
+I (../Core/Inc/GC9A01.h)(0x679F8B55)
 F (../Core/Src/stm32f4xx_it.c)(0x678E5EBA)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\stm32f4xx_it.o --omf_browse gc9a01_test_video\stm32f4xx_it.crf --depend gc9a01_test_video\stm32f4xx_it.d)
 I (../Core/Inc/main.h)(0x678E5EBA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h)(0x6712433F)
@@ -54,52 +98,8 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E9286)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x574E9286)
 I (../Core/Inc/fonts.h)(0x67864552)
-I (../Core/Inc/GC9A01.h)(0x679CB177)
+I (../Core/Inc/GC9A01.h)(0x679F8B55)
 I (../Core/Inc/stm32f4xx_it.h)(0x678E5DE2)
-F (..\Core\Inc\fonts.h)(0x67864552)()
-F (..\Core\Inc\GC9A01.h)(0x679CB177)()
-F (..\Core\Src\font8.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font8.o --omf_browse gc9a01_test_video\font8.crf --depend gc9a01_test_video\font8.d)
-I (../Core/Inc/fonts.h)(0x67864552)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-F (..\Core\Src\font12.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font12.o --omf_browse gc9a01_test_video\font12.crf --depend gc9a01_test_video\font12.d)
-I (../Core/Inc/fonts.h)(0x67864552)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-F (..\Core\Src\font16.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font16.o --omf_browse gc9a01_test_video\font16.crf --depend gc9a01_test_video\font16.d)
-I (../Core/Inc/fonts.h)(0x67864552)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-F (..\Core\Src\font20.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font20.o --omf_browse gc9a01_test_video\font20.crf --depend gc9a01_test_video\font20.d)
-I (../Core/Inc/fonts.h)(0x67864552)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-F (..\Core\Src\font24.c)(0x67864552)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\font24.o --omf_browse gc9a01_test_video\font24.crf --depend gc9a01_test_video\font24.d)
-I (../Core/Inc/fonts.h)(0x67864552)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-F (..\Core\Src\GC9A01.c)(0x679CB55A)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\gc9a01.o --omf_browse gc9a01_test_video\gc9a01.crf --depend gc9a01_test_video\gc9a01.d)
-I (../Core/Inc/main.h)(0x678E5EBA)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h)(0x6712433F)
-I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67124310)
-I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h)(0x67124310)
-I (../Drivers/CMSIS/Include/core_cm4.h)(0x67124313)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67124313)
-I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67124313)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67124313)
-I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67124313)
-I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67124310)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h)(0x6712433F)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h)(0x6712433F)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_system.h)(0x6712433F)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h)(0x6712433F)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_cortex.h)(0x6712433F)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_utils.h)(0x6712433F)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pwr.h)(0x6712433F)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h)(0x6712433F)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x6712433F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E9286)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E9286)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x574E9286)
-I (../Core/Inc/fonts.h)(0x67864552)
-I (../Core/Inc/GC9A01.h)(0x679CB177)
 F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_gpio.c)(0x6712433F)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_GC9A01_test_video-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F411xE -D_RTE_ -DUSE_FULL_LL_DRIVER -DHSE_VALUE="25000000" -DHSE_STARTUP_TIMEOUT="100" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="1" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -DSTM32F411xE-o gc9a01_test_video\stm32f4xx_ll_gpio.o --omf_browse gc9a01_test_video\stm32f4xx_ll_gpio.crf --depend gc9a01_test_video\stm32f4xx_ll_gpio.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x6712433F)
 I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67124310)
