@@ -6,7 +6,7 @@ volatile GC9A01_DrawPropTypeDef lcdprop;
 extern volatile uint8_t dma_spi_fl1;
 volatile uint8_t shift = 0;
 volatile colors current_text_color;
-
+uint16_t gradient_scale_current_pos = 0;
 /************************************basic display fuctions start************************************/
 #pragma push
 #pragma O0
@@ -734,7 +734,6 @@ void DrawLineAroundTheCircle(int16_t angle, uint8_t lineLen, uint8_t thick, uint
     int y1 = round(sin(angleRad) * 120) + 120;
 		int x2 = round(cos(angleRad) * (120 - lineLen)) + 120;
     int y2 = round(sin(angleRad) * (120 - lineLen)) + 120;
-	//	GC9A01_String(x2,y2, "0");
     GC9A01_draw_line(color, x1, y1, x2, y2,thick);
  
 }
@@ -748,6 +747,51 @@ void GC9A01_DrawCircleArountTheCircle(uint16_t start_pos,int16_t angle,uint8_t r
 
 }
 
+void GC9A01_GradientScale(uint32_t min_value,uint32_t max_value, uint32_t value){
+		uint8_t r_start = 3, g_start = 25, b_start = 31;
+		uint8_t r_end = 31, g_end = 0, b_end = 0;
+		uint8_t r, g, b;
+    uint16_t color;
+		color = (r << 11) | (g << 5) | b;
+		uint16_t start_angle = 330;
+		uint16_t end_angle = 210;
+		uint16_t diff = abs(start_angle - end_angle);
+		uint16_t total_degrees = end_angle + (360 - start_angle);
+		float step =  (float)total_degrees/ (max_value - min_value);
+		uint16_t angle = (uint16_t)roundf(step * value);
+	char str[50];
+	sprintf(str,"%dC",value);
+	GC9A01_ClearWindow(120 - (float)((4 * lcdprop.pFont->Width)/2),107, 																								\
+	(120 - (float)((4 * lcdprop.pFont->Width)/2)) +(4 * lcdprop.pFont->Width),107 + lcdprop.pFont->Height,BLACK);
+	GC9A01_String(120 - (float)((strlen(str) * lcdprop.pFont->Width)/2),107 ,str);
+	
+	if(angle >= gradient_scale_current_pos){	
+		for(uint16_t i = gradient_scale_current_pos; i!=angle; i++){
+		if(i == 360) i = 0;
+		float t = (float)i / (total_degrees - 1);
+    r = (uint8_t)((1 - t) * r_start + t * r_end);
+    g = (uint8_t)((1 - t) * g_start + t * g_end);
+    b = (uint8_t)((1 - t) * b_start + t * b_end);
+		color = (r << 11) | (g << 5) | b;
+		GC9A01_DrawCircleArountTheCircle(start_angle,i,25,95,color);			
+		}
+		gradient_scale_current_pos = angle;
+	}
+	else{
+		for(int32_t i = gradient_scale_current_pos; i!= angle; i--){
+		if(i == 0) i = 360;
+		float t = (float)i / (total_degrees - 1);
+    r = (uint8_t)((1 - t) * r_start + t * r_end);
+    g = (uint8_t)((1 - t) * g_start + t * g_end);
+    b = (uint8_t)((1 - t) * b_start + t * b_end);
+		color = (r << 11) | (g << 5) | b;
+		GC9A01_DrawCircleArountTheCircle(start_angle,i+1,25,95,BLACK);
+		}
+		GC9A01_DrawCircleArountTheCircle(start_angle,angle,25,95,color);
+		gradient_scale_current_pos = angle;
+	}
+	
+}
 
 void GC9A01_FilledDrawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color)
 {
@@ -817,6 +861,7 @@ void GC9A01_DrawChar(uint16_t x, uint16_t y, uint8_t c)
 
 void GC9A01_String(uint16_t x,uint16_t y, char *str) //fix bug with X_END_POS
 {
+	
 	uint8_t lenght = strlen(str);
 	uint8_t step = x;
 	if((lenght ) * lcdprop.pFont->Width > (X_END_POS - x ) ){

@@ -27,20 +27,16 @@ Project File Date:  02/02/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'GC9A01_test_video'
-compiling main.c...
-../Core/Src/main.c(117): warning:  #177-D: variable "angle" was declared but never referenced
-  uint16_t angle = 50;
-../Core/Src/main.c(132): warning:  #177-D: variable "str" was declared but never referenced
-  	char str[50];
-../Core/Src/main.c(145): warning:  #177-D: variable "max_values" was declared but never referenced
-      const uint8_t max_values[3] = {31, 63, 31};
-../Core/Src/main.c(146): warning:  #177-D: variable "components" was declared but never referenced
-      uint8_t *components[3] = {&r, &g, &b};
-../Core/Src/main.c: 4 warnings, 0 errors
+compiling GC9A01.c...
+../Core/Inc/GC9A01.h(217): warning:  #1-D: last line of file ends without a newline
+  void GC9A01_GradientScale(uint32_t min_value,uint32_t max_value, uint32_t value);
+..\Core\Src\GC9A01.c(1056): warning:  #940-D: missing return statement at end of non-void function "get_active_menu_member"
+  }
+..\Core\Src\GC9A01.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=11162 RO-data=3790 RW-data=28 ZI-data=6660  
+Program Size: Code=12720 RO-data=7584 RW-data=28 ZI-data=6660  
 FromELF: creating hex file...
-"GC9A01_test_video\GC9A01_test_video.axf" - 0 Error(s), 4 Warning(s).
+"GC9A01_test_video\GC9A01_test_video.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 

@@ -214,3 +214,4 @@ void GC9A01_FillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1,int16_t 
 void DrawTriangleArrow(int16_t angle, uint8_t lineLen, uint8_t thick, uint16_t color, uint8_t base_lenght, uint16_t back_tail_angle, uint8_t imaginable_circle_R);
 void GC9A01_FillCircle(uint16_t x0, uint16_t y0, uint8_t r, uint16_t color);
 void GC9A01_DrawCircleArountTheCircle(uint16_t start_pos,int16_t angle,uint8_t r,uint8_t distance_to_center, uint16_t color);
+void GC9A01_GradientScale(uint32_t min_value,uint32_t max_value, uint32_t value);

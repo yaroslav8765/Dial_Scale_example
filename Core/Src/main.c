@@ -124,74 +124,28 @@ LL_SPI_EnableDMAReq_TX(SPI_NO);
 LL_SPI_Enable(SPI_NO);
 
 GC9A01_Initial();
-GC9A01_ClearScreen(WHITE);
-GC9A01_SetFont(default_font);
-GC9A01_SetBackColor(WHITE);
-GC9A01_SetTextColor(BLACK);
+GC9A01_ClearScreen(BLACK);
+GC9A01_SetFont(&Font24);
+GC9A01_SetBackColor(BLACK);
+GC9A01_SetTextColor(WHITE);
 	
 	char str[50];
-	
-	
-		uint8_t r_start = 31, g_start = 0, b_start = 0;
-		uint8_t r_end = 0, g_end = 0, b_end = 31;
-		uint8_t r, g, b;
-    uint16_t color;
-		color = (r << 11) | (g << 5) | b;
-		uint16_t start_angle = 330;
-		uint16_t end_angle = 210;
-		uint16_t diff = abs(start_angle - end_angle);
-		uint16_t total_degrees = end_angle + (360 - start_angle);
-    // ?????? ? ????????? ??????????? R, G, B
-    const uint8_t max_values[3] = {31, 63, 31};
-    uint8_t *components[3] = {&r, &g, &b};
+	uint8_t temp = 0;
+	sprintf(str,"%dC",temp);
+	//GC9A01_String (86,106,str);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		//GC9A01_ClearWindow(20,20,120,120,RED);
-		//GC9A01_ClearWindow(180,180,140,140,GREEN);
-//		GC9A01_FillCircle(120,120,20,ORANGE);
-//		GC9A01_ClearWindow(120,120,121,180,RED);
-		
-		
-		
-		
-		
-		
-		
-		for(uint16_t i = 0; i!=total_degrees; i++){
-		if(i == 360) i = 0;
-			 float t = (float)i / (total_degrees - 1);
-    r = (uint8_t)((1 - t) * r_start + t * r_end);
-    g = (uint8_t)((1 - t) * g_start + t * g_end);
-    b = (uint8_t)((1 - t) * b_start + t * b_end);
+				temp++;
+				sprintf(str,"%dC",temp);
+				GC9A01_ClearWindow(109,120,153,136,BLACK);
 
-		color = (r << 11) | (g << 5) | b;
-		GC9A01_DrawCircleArountTheCircle(start_angle,i,25,95,color);
-
-			
-		}
-		
-		for(int32_t i = total_degrees; i!= 0; i--){
-		if(i == 0) i = 360;
-		float t = (float)i / (total_degrees - 1);
-    r = (uint8_t)((1 - t) * r_start + t * r_end);
-    g = (uint8_t)((1 - t) * g_start + t * g_end);
-    b = (uint8_t)((1 - t) * b_start + t * b_end);
-		color = (r << 11) | (g << 5) | b;
-		GC9A01_DrawCircleArountTheCircle(start_angle,i+1,25,95,WHITE);
-//		GC9A01_DrawCircleArountTheCircle(start_angle,i,25,95,color);
-		}
-		
-
-		
-		
-		
-		
-		
-		
+				GC9A01_GradientScale(0,100,temp);
+				if(temp > 100) temp = 0;
+				delay_ms(10);
 		
 		
 		
